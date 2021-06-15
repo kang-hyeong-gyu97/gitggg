@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="style.css" rel="stylesheet" type="text/css" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>자랑타임</title>
+     <!-- style 시작부분-->
+     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR&display=swap');
+.img_wrap {
+            width: 300px;
+            margin-top: 50px;
+        }
+        .img_wrap img {
+            max-width: 100%;
+        }
+.h1 {
+   font-family: 'Nanum Pen Script', serif;
+}
+div.container{
+        overflow:hidden;}
+    div.item{
+        float: left;
+        margin:0 17px;
+        padding:10px;
+        width:14%;
+        border:1px solid black; 
+        text-align: center;
+    }
+   *{margin:0; padding:0;}
+body{
+   margin:0 auto;
+   width:960px;
+   background-color: rgba(204, 207, 165, 0.582);
+   text-align: left;
+}
+.box {
+       border-width: thick;
+       border-style: dashed;
+       border-color: black;
+       border-radius: 20px; 
+       text-align: center;
+       font-size: 40px;
+       font-family: 'Noto Sans KR', sans-serif;
+   }
+   </style>
+<script type="text/javascript" src="./js/jquery-3.1.1.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        
+        var sel_file;
+ 
+        $(document).ready(function() {
+            $("#input_img").on("change", handleImgFileSelect);
+        }); 
+ 
+        function handleImgFileSelect(e) {
+            var files = e.target.files;
+            var filesArr = Array.prototype.slice.call(files);
+ 
+            filesArr.forEach(function(f) {
+                if(!f.type.match("image.*")) {
+                    alert("확장자는 이미지 확장자만 가능합니다.");
+                    return;
+                }
+ 
+                sel_file = f;
+ 
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $("#img").attr("src", e.target.result);
+                }
+                reader.readAsDataURL(f);
+            });
+        }
+ 
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h1 class="h1"><img src="강아지 캐릭터.jpg" width="100" height="100">  
+            구해줘, 펫즈   <img src="고양이캐릭터.jpg" width="100" height="100"> </h1>
+    </div><br>
+    <hr><br>
+    <b>
+        <div class="item"><a href="homepage.html">메인</a></div>
+        <div class="item"><a href="1.html">묘견 뉴스</a></div>
+        <div class="item"><a href="2.html">유용한 정보</a></div>
+        <div class="item"><a href="3.html">자랑해보자!</a></div>
+        <div class="item"><a href="homepage.html#E">Q&A</a></div>
+     </b>
+    <br>
+    <br><br>
+    <h2>자랑하고싶은 반려동물사진을 올려주세요~!!!</h2>
+    <form>
+        <fieldset>
+            <legend>입력양식</legend>
+            <table>
+                <tr>
+                    <td><label for="name">이름</label></td>
+                    <td><input id="name" type="text"></td>
+                </tr>
+                <tr>
+                    <td><label for="name">나이/성별</label></td>
+                    <td><input id="name" type="text"></td>
+                </tr>
+                <tr>
+                    <td><label for="name">설명</label></td>
+                    <td><textarea name="설명" cols="25" row="10"></textarea></td>
+                </tr>
+                <tr>
+                    <td><input type="file" id="input_img" /></td>
+                </tr>
+            </table><br>
+            <input type="submit">
+        </fieldset>
+    </form>
+<div class="img_wrap">
+            <img id="img" />
+        </div>
+        <h4>--예시--</h4>
+        <br>
+        <img src="dog1.jpg" width="300" height="400">
+        <p><b>이름:</b> 낑깡이<br>
+           <b>나이/성별:</b> 3살/남<br>
+           <b>설명:</b> 장난치고 놀다가 간식주니깐<br> 자기가 제일 좋아하는 자리에서 먹고있어요~~<br>
+        </p>
+        <br><br><br><hr><br><br><br>
+        <img src="dog2.jpg" width="400" height="400">
+        <p><b>이름:</b> 산들이<br>
+            <b>나이/성별:</b> 1살/여<br>
+            <b>설명:</b> 첫 미용하고 얼떨떨하게 앉아있는 산들이 ㅎㅎ<br>
+         </p>
+         <br><br><br><hr><br><br><br>
+</body>
+</html>
